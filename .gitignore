@@ -1,0 +1,22 @@
+# Ignore all files in the directory
+# But keep the directory structure (include the empty directory)
+app/vendor/*
+!app/vendor/.gitkeep
+
+home/assets/favicons/*
+!home/assets/favicons/.gitkeep
+
+home/assets/fonts/*
+!home/assets/fonts/.gitkeep
+
+home/assets/images/blog/*
+!home/assets/images/blog/.gitkeep
+
+home/assets/images/icons/*
+!home/assets/images/icons/.gitkeep
+
+home/assets/images/og/*
+!home/assets/images/og/.gitkeep
+
+home/assets/images/pages/*
+!home/assets/images/pages/.gitkeep

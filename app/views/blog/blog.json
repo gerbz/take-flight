@@ -1,0 +1,43 @@
+{
+"categories":{
+	"cat1":[
+		"the-first-post",
+		"post-number-2"
+	],
+	"cat2":[
+		"post-three"
+	]
+},
+"posts":{
+	"the-first-post":{
+		"slug":"the-first-post",
+		"title":"The First Post",
+		"description":"Description of the first post",
+		"page_title":"Title on the page of the first post",
+		"category":"cat1",
+		"image":"the-first-post.png",
+		"author":"Me",
+		"date":"March 31st, 2025"
+	},
+	"post-number-2":{
+		"slug":"post-number-2",
+		"title":"The 2nd Post",
+		"description":"Description of the second post",
+		"page_title":"Title on the page of the second post",
+		"category":"cat1",
+		"image":"post-number-2.png",
+		"author":"Me",
+		"date":"March 31st, 2025"
+	},
+	"post-three":{
+		"slug":"post-three",
+		"title":"Post Three",
+		"description":"Welcome to theh 3rd post!",
+		"page_title":"Onpage title of the 3rd post",
+		"category":"cat2",
+		"image":"post-three",
+		"author":"Me",
+		"date":"March 31st, 2025"
+	}
+}
+}
