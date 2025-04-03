@@ -24,7 +24,7 @@
 
 <p><code>Here's what code looks like</code></p>
 
-<blockquote>Anyone like blockquotes?</blockquote>
+<blockquote class="blockquote"><p>Anyone like blockquotes?</p></blockquote>
 
 <h2 id="section1">Section 1</h2>
 

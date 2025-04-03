@@ -38,8 +38,7 @@ echo '<meta property="og:image:height" content="700" />'."\n";
 echo '<meta property="og:image:alt" content="'.htmlentities($title).'">'."\n";
 
 // Styles
-//echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">';
-echo '<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">';
+echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">';
 echo '<link type="text/css" rel="stylesheet" href="'.Flight::get('site_assets').'/styles/site.css?v='.Flight::get('site_version').'">';
 if($styles){
 	foreach($styles as $style){	

@@ -17,6 +17,7 @@
 		"category":"cat1",
 		"image":"the-first-post.png",
 		"author":"Me",
+		"author_url":"https://x.com/me",
 		"date":"March 31st, 2025"
 	},
 	"post-number-2":{
@@ -27,6 +28,7 @@
 		"category":"cat1",
 		"image":"post-number-2.png",
 		"author":"Me",
+		"author_url":"https://x.com/me",
 		"date":"March 31st, 2025"
 	},
 	"post-three":{
@@ -37,6 +39,7 @@
 		"category":"cat2",
 		"image":"post-three",
 		"author":"Me",
+		"author_url":"https://x.com/me",
 		"date":"March 31st, 2025"
 	}
 }
