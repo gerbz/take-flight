@@ -1,3 +1,6 @@
+# Ignore this file
+.DS_Store
+
 # Ignore all files in the directory
 # But keep the directory structure (include the empty directory)
 app/vendor/*
