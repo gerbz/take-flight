@@ -27,6 +27,13 @@
 </ul>
 </div>
 
+<h3>April 3rd 2025 - v2</h3>
+<ul>
+<li>⭐️ Now there's a footer</li>
+<li>🛠 Jumped from Bootstrap 3 to Bootstrap 5!</li>
+<li>🛠 Moved script inclusion to the footer</li>
+</ul>
+
 <h3>April 2nd 2025 - v1</h3>
 <p>Taking flight!</p>
 <ul>
@@ -42,5 +49,5 @@
 </div>
 
 </div>
-</body>
-</html>
+
+<?php echo $part_footer; ?>

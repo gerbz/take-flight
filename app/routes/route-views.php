@@ -23,6 +23,7 @@ Flight::map('notFound', function(){
 	
 	Flight::render('parts/part-head.php', array('title' => $tags['title'], 'description' => $tags['description'], 'image' => $tags['image'], 'styles' => $tags['styles'], 'scripts' => $tags['scripts']), 'part_head');
 	Flight::render('parts/part-nav.php', array(), 'part_nav');
+	Flight::render('parts/part-footer.php', array(), 'part_footer');
 	Flight::render('404.php', array('title' => $tags['title']));
 	
 });
@@ -48,6 +49,7 @@ Flight::route('/', function(){
 
 	Flight::render('parts/part-head.php', array('title' => $tags['title'], 'description' => $tags['description'], 'image' => $tags['image'], 'styles' => $tags['styles'], 'scripts' => $tags['scripts']), 'part_head');
 	Flight::render('parts/part-nav.php', array(), 'part_nav');
+	Flight::render('parts/part-footer.php', array(), 'part_footer');
 	Flight::render('home.php');
 
 });
@@ -85,12 +87,14 @@ Flight::route('/blog(/@post)', function($post){
 
 		Flight::render('parts/part-head.php', array('title' => $tags['title'], 'description' => $tags['description'], 'image' => $tags['image'], 'styles' => $tags['styles'], 'scripts' => $tags['scripts']), 'part_head');
 		Flight::render('parts/part-nav.php', array(), 'part_nav');
+		Flight::render('parts/part-footer.php', array(), 'part_footer');
 		Flight::render('blog.php', array('posts' => $posts['posts']));
 
 	}else{
 
 		Flight::render('parts/part-head.php', array('title' => $posts['posts'][$post]['title'], 'description' => $posts['posts'][$post]['description'], 'image' => $posts['posts'][$post]['image'], 'styles' => $tags['styles'], 'scripts' => $tags['scripts']), 'part_head');
 		Flight::render('parts/part-nav.php', array(), 'part_nav');
+		Flight::render('parts/part-footer.php', array(), 'part_footer');
 		Flight::render('blog-post.php', array('post' => $posts['posts'][$post]));
 
 	}
@@ -119,6 +123,7 @@ Flight::route('/changelog', function(){
 
 	Flight::render('parts/part-head.php', array('title' => $tags['title'], 'description' => $tags['description'], 'image' => $tags['image'], 'styles' => $tags['styles'], 'scripts' => $tags['scripts']), 'part_head');
 	Flight::render('parts/part-nav.php', array(), 'part_nav');
+	Flight::render('parts/part-footer.php', array(), 'part_footer');
 	Flight::render('changelog.php');
 	
 });
