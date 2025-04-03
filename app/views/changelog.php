@@ -32,6 +32,8 @@
 <li>🛠 Jumped from Bootstrap 3 to Bootstrap 5!</li>
 <li>🛠 Now there's a footer! Nothing to see yet, but now the script files are there.</li>
 <li>🛠 Added a blog author url for each post</li>
+<li>🛠 Added optional Parsedown integration</li>
+<li>👀 Display the readme file on the homepage using Parsedown</li>
 </ul>
 
 <h3>April 2nd 2025 - v1</h3>
