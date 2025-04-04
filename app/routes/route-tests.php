@@ -40,8 +40,8 @@ Flight::route('/test', function(){
 
 	//Flight::r()->set($d);
 	//Flight::r()->success();	
-	echo '<pre>';print_r($d);
-	//echo 'hello world!';
+	//echo '<pre>';print_r($d);
+	echo 'hello world!';
 	
 	
 });

@@ -27,6 +27,11 @@
 </ul>
 </div>
 
+<h3>April Xrd 2025 - v2</h3>
+<ul class="list-unstyled">
+<li>🛠 Updated the resonse class to return empty strings in json responses instead of null</li>
+</ul>
+
 <h3>April 3rd 2025 - v2</h3>
 <ul class="list-unstyled">
 <li>🛠 Jumped from Bootstrap 3 to Bootstrap 5!</li>

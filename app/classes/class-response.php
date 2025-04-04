@@ -27,6 +27,21 @@ class Response{
 	}
 
 	/**
+	* Replace null values with empty strings
+	* @param	mixed $value The value to replace null values with empty strings
+	* @return	mixed The value with null values replaced with empty strings
+	*/
+	public function replace_null_with_empty_string($value){
+
+		if(is_array($value)){
+			return array_map(array($this, 'replace_null_with_empty_string'), $value);
+		}
+
+		return $value === null ? '' : $value;
+
+	}
+
+	/**
 	* Output a json response with status 200
 	* @param	string $message Optional. A message to be displayed to the user.  Use r()->error() for messages not displayed to the user.
 	* @return	void Doesn't return, it outputs the response and exits!
@@ -51,6 +66,7 @@ class Response{
 		http_response_code($this->response['_system']['status']);
 
 		// Respond
+		$this->response = $this->replace_null_with_empty_string($this->response);
 		exit(Flight::json($this->response));
 
 	}
@@ -77,6 +93,7 @@ class Response{
 		http_response_code($this->response['_system']['status']);
 
 		// Respond
+		$this->response = $this->replace_null_with_empty_string($this->response);
 		exit(Flight::json($this->response));
 
 	}
