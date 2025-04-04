@@ -52,14 +52,9 @@ class Response{
 		$this->response['_system']['status'] = 200;
 		$this->response['_system']['now'] = Flight::cache()->timestamp;
 
-		if(!empty($this->response['_system']['message'])){
-
-			$this->response['_system']['message'] = $message.' '.$this->response['_system']['message'];
-
-		}else{
-
-			$this->response['_system']['message'] = $message;
-
+		// Include a message if it's set
+		if(!empty($message)){
+			$this->message($message);
 		}
 
 		// Set headers
@@ -83,10 +78,9 @@ class Response{
 		$this->response['_system']['status'] = $status_code;
 		$this->response['_system']['now'] = Flight::cache()->timestamp;
 
-		if(empty($this->response['_system']['message'])){
-
-			$this->response['_system']['message'] = $message;
-
+		// Include a message if it's set
+		if(!empty($message)){
+			$this->message($message);
 		}
 
 		// Set the headers
