@@ -12,16 +12,23 @@ class Core{
 	* @param	string $log Optional. Data to log after timestamp and note.
 	* @return	void
 	*/
-	public function log($filename = 'unknown', $note = '', $log =''){
+	public function log($filename = 'unknown', $note = '', $log = ''){
 
 		// Only write logs in buidl mode
 		if(!Flight::get('buidl')){
-			return;
+			//return;
 		}
 
 		$line = date("Y-m-d-H:i:s").' - '.$note."\n";
 		if(!empty($log)){
-			$line .= $log."\n"."\n";
+			if(is_array($log)){
+				$line .= print_r($log, true)."\n";
+			}else if(preg_match('/^[^&]*(&[^&]*)*$/', $log)){
+				parse_str($log, $r);
+				$line .= print_r($r, true)."\n";
+			}else{
+				$line .= $log."\n";
+			}
 		}
 
 		file_put_contents(Flight::get('path_logs').'/'.$filename.'.txt', $line, FILE_APPEND);

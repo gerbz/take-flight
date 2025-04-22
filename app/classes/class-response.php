@@ -10,6 +10,7 @@ class Response{
 	* Includes a status, message, errors and a timestamp (now)
 	*/
 	public $response = array('_system' => array());
+	public $timestamp;
 
 	/**
 	* Allow primary domain to make ajax requests with the subdomain
@@ -17,12 +18,15 @@ class Response{
 	*/
 	public function __construct(){
 
-		//
+		// Allow primary domain to make ajax requests with the subdomain
 		header("Access-Control-Allow-Origin: *");
 		header("Access-Control-Allow-Credentials: true");
 		header("Access-Control-Allow-Methods: GET,HEAD,OPTIONS,POST,PUT");
 		header("Access-Control-Allow-Headers: Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
 		header("Content-Type: application/json");
+
+		// Set a timestamp once so its the same regardless of processing time.
+		$this->timestamp = time();
 
 	}
 
@@ -50,7 +54,7 @@ class Response{
 
 		// Setup system block
 		$this->response['_system']['status'] = 200;
-		$this->response['_system']['now'] = Flight::cache()->timestamp;
+		$this->response['_system']['now'] = $this->timestamp;
 
 		// Include a message if it's set
 		if(!empty($message)){
@@ -76,7 +80,7 @@ class Response{
 
 		// Setup system block
 		$this->response['_system']['status'] = $status_code;
-		$this->response['_system']['now'] = Flight::cache()->timestamp;
+		$this->response['_system']['now'] = $this->timestamp;
 
 		// Include a message if it's set
 		if(!empty($message)){
