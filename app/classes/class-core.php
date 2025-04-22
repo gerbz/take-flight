@@ -21,13 +21,17 @@ class Core{
 
 		$line = date("Y-m-d-H:i:s").' - '.$note."\n";
 		if(!empty($log)){
-			if(is_array($log)){
-				$line .= print_r($log, true)."\n";
-			}else if(preg_match('/^[^&]*(&[^&]*)*$/', $log)){
-				parse_str($log, $r);
-				$line .= print_r($r, true)."\n";
-			}else{
-				$line .= $log."\n";
+			if(!empty($log)){
+				if(is_array($log)){
+					$line .= print_r($log, true)."\n";
+				}else if(substr($log, 0, 1) != '{'){
+					$line .= print_r(json_decode($log, true), true)."\n";
+				}else if(preg_match('/=.*&|&.*=/i', $log)){
+					parse_str($log, $r);
+					$line .= print_r($r, true)."\n";
+				}else{
+					$line .= $log."\n";
+				}
 			}
 		}
 
