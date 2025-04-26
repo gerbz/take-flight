@@ -16,23 +16,22 @@ class Core{
 
 		// Only write logs in buidl mode
 		if(!Flight::get('buidl')){
-			//return;
+			return;
 		}
 
 		$line = date("Y-m-d-H:i:s").' - '.$note."\n";
 		if(!empty($log)){
-			if(!empty($log)){
-				if(is_array($log)){
-					$line .= print_r($log, true)."\n";
-				}else if(substr($log, 0, 1) != '{'){
-					$line .= print_r(json_decode($log, true), true)."\n";
-				}else if(preg_match('/=.*&|&.*=/i', $log)){
-					parse_str($log, $r);
-					$line .= print_r($r, true)."\n";
-				}else{
-					$line .= $log."\n";
-				}
+			if(is_array($log)){
+				$data = $log;
+			}else if(substr($log, 0, 1) == '{'){
+				$data = json_decode($log, true);
+			}else if(preg_match('/=.*&|&.*=/i', $log)){
+				$data = explode('&', $log);
+			}else{
+				$data = $log."\n";
 			}
+
+			$line .= print_r($data, true)."\n";
 		}
 
 		file_put_contents(Flight::get('path_logs').'/'.$filename.'.txt', $line, FILE_APPEND);
