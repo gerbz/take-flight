@@ -53,6 +53,8 @@ function time_ago(input){
 			return formatter.format(Math.round(delta), key);
 		}
 	}
+	// If no range matched (very recent), return "now"
+	return 'now';
 }
 
 function timestamp_to_datetime(unixtimestamp){
