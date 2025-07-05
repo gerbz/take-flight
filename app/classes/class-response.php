@@ -48,9 +48,10 @@ class Response{
 	/**
 	* Output a json response with status 200
 	* @param	string $message Optional. A message to be displayed to the user.  Use r()->error() for messages not displayed to the user.
-	* @return	void Doesn't return, it outputs the response and exits!
+	* @param	bool $exit Optional. Whether to exit after sending response. Defaults to true.
+	* @return	void|string Doesn't return if exit=true, otherwise returns the JSON response
 	*/
-	public function success($message = ''){
+	public function success($message = '', $exit = true){
 
 		// Setup system block
 		$this->response['_system']['status'] = 200;
@@ -66,17 +67,33 @@ class Response{
 
 		// Respond
 		$this->response = $this->replace_null_with_empty_string($this->response);
-		exit(Flight::json($this->response));
+		
+		if($exit){
+			exit(Flight::json($this->response));
+		}else{
+			echo Flight::json($this->response);
+			
+			// Ensure the HTTP response is sent and connection closed immediately
+			if (function_exists('fastcgi_finish_request')) {
+				fastcgi_finish_request();
+			} else {
+				ob_end_flush();
+				flush();
+			}
+			
+			return $this->response;
+		}
 
 	}
 
 	/**
 	* Output a json response with fail status
-	* @param	int $status_code Typically 400
 	* @param	string $message Optional. A message to be displayed to the user.  Use r()->error() for messages not displayed to the user.
-	* @return	void Doesn't return, it outputs the response and exits!
+	* @param	int $status_code Typically 400
+	* @param	bool $exit Optional. Whether to exit after sending response. Defaults to true.
+	* @return	void|string Doesn't return if exit=true, otherwise returns the JSON response
 	*/
-	public function fail($status_code, $message = ''){
+	public function fail($message = '', $status_code = 400, $exit = true){
 
 		// Setup system block
 		$this->response['_system']['status'] = $status_code;
@@ -92,7 +109,22 @@ class Response{
 
 		// Respond
 		$this->response = $this->replace_null_with_empty_string($this->response);
-		exit(Flight::json($this->response));
+		
+		if($exit){
+			exit(Flight::json($this->response));
+		}else{
+			echo Flight::json($this->response);
+			
+			// Ensure the HTTP response is sent and connection closed immediately
+			if (function_exists('fastcgi_finish_request')) {
+				fastcgi_finish_request();
+			} else {
+				ob_end_flush();
+				flush();
+			}
+			
+			return $this->response;
+		}
 
 	}
 

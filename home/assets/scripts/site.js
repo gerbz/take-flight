@@ -5,13 +5,33 @@
 
 /** Helpers **/
 function empty(v){
-	if(Array.isArray(v) && !v.length){
-		return true;
-	}else if(typeof v !== 'undefined' && v !== null && v !== ''){
-		return false;
-	}else{
+	// Handle most common cases first: undefined, null, empty string
+	if(v === undefined || v === null || v === ''){
 		return true;
 	}
+	
+	// Handle arrays (very common in this app)
+	if(Array.isArray(v) && !v.length){
+		return true;
+	}
+	
+	// Handle whitespace-only strings (common with user input)
+	if(typeof v === 'string' && v.trim() === ''){
+		return true;
+	}
+	
+	// Handle empty objects (less common, more expensive check)
+	if(typeof v === 'object' && Object.keys(v).length === 0){
+		return true;
+	}
+	
+	// Handle string literals (rare cases)
+	if(v === 'undefined' || v === 'null'){
+		return true;
+	}
+	
+	// If none of the above, it's not empty
+	return false;
 }
 
 function time_ago(input){
