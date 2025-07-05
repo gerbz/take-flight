@@ -6,7 +6,7 @@
 /** Helpers **/
 function empty(v){
 	// Handle most common cases first: undefined, null, empty string
-	if(v === undefined || v === null || v === ''){
+	if(typeof v === 'undefined' || v === null || v === ''){
 		return true;
 	}
 	
